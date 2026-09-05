@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>For My Wife ❤️</title>
+<style>
+:root{--pink:#ff5d88;--rose:#b72e5d;--cream:#fff8fb}
+*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%;font-family:Georgia,serif}
+body{background:#130a10;color:#fff;overflow-x:hidden}
+#intro{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:28px;
+background:radial-gradient(circle at 50% 35%,#6f3048 0,#2b1420 42%,#10090d 100%)}
+.intro-card{max-width:430px}.tiny{letter-spacing:4px;text-transform:uppercase;font:11px Arial;opacity:.7}
+h1{font-size:clamp(42px,12vw,72px);line-height:.95;margin:18px 0 12px;font-weight:400}
+.subtitle{font-size:18px;opacity:.82;margin-bottom:32px}
+.open{border:0;border-radius:999px;padding:15px 28px;background:#fff;color:#5b1831;font-size:16px;
+font-weight:bold;box-shadow:0 12px 35px #0007;cursor:pointer}
+#story{display:none;background:linear-gradient(#fff8fb,#fbe3eb);color:#351b26;min-height:100vh}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:22px}
+.hero-inner{text-align:center;max-width:520px}
+.hero h2{font-size:20px;font-weight:400;letter-spacing:2px;text-transform:uppercase;color:#9d4765}
+.hero h3{font-size:clamp(38px,10vw,60px);margin:8px 0 18px;font-weight:400}
+.hero p{font-size:18px;line-height:1.7;margin:0 auto 26px}
+.scroll{font:12px Arial;letter-spacing:2px;text-transform:uppercase;opacity:.55}
+.gallery{padding:35px 16px 70px;max-width:850px;margin:auto}
+.card{background:white;border-radius:24px;padding:10px;box-shadow:0 16px 45px #6a294033;margin:34px auto;max-width:650px;
+opacity:0;transform:translateY(50px) scale(.96);transition:opacity .9s ease,transform 1s cubic-bezier(.2,.8,.2,1)}
+.card.show{opacity:1;transform:none}.card img{width:100%;display:block;border-radius:17px;max-height:78vh;object-fit:cover}
+.caption{text-align:center;padding:16px 8px 10px;font-size:20px}.caption span{display:block;font:11px Arial;letter-spacing:2px;text-transform:uppercase;opacity:.5;margin-bottom:7px}
+.final{text-align:center;padding:90px 24px 120px;position:relative;overflow:hidden}
+.final h2{font-size:clamp(40px,11vw,70px);font-weight:400;margin:0 0 15px}.final p{font-size:19px;line-height:1.8}
+.final .big-heart{font-size:76px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{transform:scale(1.15)}}
+.heart{position:fixed;bottom:-30px;pointer-events:none;animation:float 5s linear forwards;z-index:20}
+@keyframes float{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+.fade{animation:fade 1.2s ease both}@keyframes fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<section id="intro">
+  <div class="intro-card fade">
+    <div class="tiny">A little surprise for you</div>
+    <h1>My Wife<br>My Home ❤️</h1>
+    <div class="subtitle">I made this little corner of the internet just for us.</div>
+    <button class="open" onclick="start()">Open your surprise 💌</button>
+  </div>
+</section>
+
+<section id="story">
+  <div class="hero">
+    <div class="hero-inner fade">
+      <h2>For the woman I love</h2>
+      <h3>Our little story</h3>
+      <p>
+        From the moments we shared to the life we are building together,
+        every memory with you is one I want to keep forever.
+      </p>
+      <div class="scroll">Scroll slowly ↓</div>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <div class="card"><img src="photo1.jpg"><div class="caption"><span>Memory 01</span>Some moments simply feel like home. ❤️</div></div>
+    <div class="card"><img src="photo2.jpg"><div class="caption"><span>Memory 02</span>My favourite place is wherever I am with you.</div></div>
+    <div class="card"><img src="photo3.jpg"><div class="caption"><span>Memory 03</span>Your smile will always be one of my favourite sights.</div></div>
+    <div class="card"><img src="photo4.jpg"><div class="caption"><span>Memory 04</span>Us — exactly the way I want my forever to look.</div></div>
+    <div class="card"><img src="photo5.jpg"><div class="caption"><span>Memory 05</span>And this is only the beginning. 💕</div></div>
+  </div>
+
+  <div class="final">
+    <div class="big-heart">❤️</div>
+    <h2>I Love You</h2>
+    <p>
+      Thank you for being my partner, my peace,<br>
+      and my favourite person.<br><br>
+      <b>Here's to every tomorrow together. ✨</b>
+    </p>
+  </div>
+</section>
+
+<script>
+function start(){
+  document.getElementById('intro').style.display='none';
+  document.getElementById('story').style.display='block';
+  window.scrollTo(0,0);
+  burst();
+  const cards=[...document.querySelectorAll('.card')];
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+  },{threshold:.16});
+  cards.forEach(c=>io.observe(c));
+}
+function burst(){
+  for(let i=0;i<28;i++){
+    const h=document.createElement('div');
+    h.className='heart';
+    h.textContent=['❤️','💗','💖','✨'][i%4];
+    h.style.left=(Math.random()*100)+'vw';
+    h.style.fontSize=(14+Math.random()*22)+'px';
+    h.style.animationDuration=(3.5+Math.random()*3)+'s';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),7000);
+  }
+}
+</script>
+</body>
+</html>
